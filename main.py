@@ -275,8 +275,10 @@ def jogar_partida(baralho):
 
         "dealer_upcard": dealer_up,
 
-        "player_first_action":
-            primeira_acao if primeira_acao else "BLACKJACK",
+        # Nao houve decisao quando a rodada terminou por blackjack natural.
+        "player_first_action": primeira_acao if primeira_acao else (
+            "BLACKJACK" if jogador_blackjack else "SEM_ACAO"
+        ),
 
         "player_final_value": valor_final_jogador,
 
